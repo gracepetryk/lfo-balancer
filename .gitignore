@@ -1,6 +1,6 @@
 LFOBalancer/bin
 *.suo
-LFOBalancer/balancePostBuild
+LFOBalancer/LFOBalancerPostBuild
 *.pidb
 *.userprefs
 
