@@ -43,7 +43,7 @@ namespace LFOBalancer {
 					idealOxy = (oxy.maxAmount * lf.amount) / lf.maxAmount;
 					
 					// make sure we dont create new fuel
-					if (!idealOxy > oxy.amount) {
+					if (!(idealOxy > oxy.amount)) {
 						oxy.amount = idealOxy;
 					}
 				}
