@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if [ -d ~/KSP_linux/codeGameData ] ; then
+    switchGD
+fi
+
+cp ~/Documents/LFOBalancer/LFOBalancer/bin/Debug/LFOBalancer.dll ~/KSP_linux/GameData/LFOBalancer/Plugins
