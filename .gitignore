@@ -4,7 +4,7 @@ LFOBalancer/LFOBalancerPostBuild
 *.pidb
 *.userprefs
 *.sln
-LFOBalancer/.idea
+.idea
 LFOBalancer/.vs
 LFOBalancer/Properties
 LFOBalancer/AssemblyInfo.cs
