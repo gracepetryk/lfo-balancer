@@ -1,7 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LFOBalancer", "LFOBalancer.csproj", "{64770AD6-B032-4DC9-9AAF-B80E981C94CE}"
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LFOBalancer", "LFOBalancer.csproj", "{F14CD07A-0F73-423C-B2DD-F1FE64FBF7E8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,19 +8,9 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{64770AD6-B032-4DC9-9AAF-B80E981C94CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{64770AD6-B032-4DC9-9AAF-B80E981C94CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{64770AD6-B032-4DC9-9AAF-B80E981C94CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{64770AD6-B032-4DC9-9AAF-B80E981C94CE}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = LFOBalancer.csproj
-		Policies = $0
-		$0.TextStylePolicy = $1
-		$1.FileWidth = 120
-		$1.TabWidth = 4
-		$1.inheritsSet = Mono
-		$1.inheritsScope = text/plain
-		$1.scope = text/plain
+		{F14CD07A-0F73-423C-B2DD-F1FE64FBF7E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F14CD07A-0F73-423C-B2DD-F1FE64FBF7E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F14CD07A-0F73-423C-B2DD-F1FE64FBF7E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F14CD07A-0F73-423C-B2DD-F1FE64FBF7E8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -1,53 +1,48 @@
-using System;
-using UnityEngine;
+using System.Runtime.CompilerServices;
 
 namespace LFOBalancer {
-	// TODO: Add more comments
-	public class ModuleLFOBalancer : PartModule {
-		public bool balance = false;
-		public const string ENABLED_STRING = "Enable Oxidizer Balance";
-		public const string DISABLED_STRING = "Disable Oxidizer Balance";
+	public class ModuleLFOBalancer : PartModule
+	{
+		private const string ENABLE_STRING = "Enable LFO Balancer";
+		private const string DISABLE_STRING = "Disable LFO Balancer";
 
-		
-		public override void OnUpdate () {
-			if (balance) {
-				balanceFuel();
-			}
-		}
+		[KSPField(isPersistant = true)] 
+		public bool balance = true;
 
-		// we need a seperate method because KSPEvent only calls once but we need it to run continuously
-		[KSPEvent(active=true, guiActive=true, guiActiveUnfocused=false, guiName=ENABLED_STRING)]
-		public void enableBalance() {
+
+		// the next two methods handle toggling balance for individual tanks
+		[KSPEvent(active = false, guiActive = true, guiActiveEditor = true, guiName = ENABLE_STRING, advancedTweakable = true)]
+		public void EnableBalance()
+		{
 			balance = true;
-			Events["enableBalance"].active = false;
-			Events["disableBalance"].active = true;
+			Events["DisableBalance"].active = true;
+			Events["EnableBalance"].active = false;
 		}
-		
-		[KSPEvent(active = false, guiActive = true, guiName = DISABLED_STRING)]
-		public void disableBalance(){
+
+		[KSPEvent(active = true, guiActive = true, guiActiveEditor = true, guiName = DISABLE_STRING, advancedTweakable = true)]
+		public void DisableBalance()
+		{
 			balance = false;
-			Events["enableBalance"].active = true;
-			Events["disableBalance"].active = false;
+			Events["DisableBalance"].active = false;
+			Events["EnableBalance"].active = true;
 		}
+
 		
-		public void balanceFuel() {
-			PartResource oxy;
-			PartResource lf;
-			double idealOxy;
-			
-			foreach(Part localPart in this.vessel.Parts) {
-				if (localPart.Resources.Contains("Oxidizer") && localPart.Resources.Contains ("LiquidFuel")) {	
-					lf = localPart.Resources["LiquidFuel"];
-					oxy = localPart.Resources["Oxidizer"];
-					
-					idealOxy = (oxy.maxAmount * lf.amount) / lf.maxAmount;
-					
-					// make sure we dont create new fuel
-					if (!(idealOxy > oxy.amount)) {
-						oxy.amount = idealOxy;
-					}
-				}
+		public PartResource GetResource(string resourceName)
+		{
+			// returns a part resource if it exists, is not locked, and the balancer is enabled
+			PartResource resource;
+
+			if (part.Resources.Contains(resourceName))
+			{
+				resource = part.Resources[resourceName];
 			}
+			else
+			{
+				return null;
+			}
+
+			return balance ? resource : null;
 		}
 	}
 }
