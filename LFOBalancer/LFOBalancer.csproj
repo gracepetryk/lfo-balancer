@@ -55,10 +55,8 @@
     <Compile Include="source\ModuleLFOBalancer.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="GameData\LFOBalancer" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="postBuild.sh" />
+    <Content Include="postBuildRelease.sh" />
     <Content Include="source\LFOBalancer.cfg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
@@ -67,7 +65,10 @@
     <Target Name="BeforeBuild">
     </Target>
     -->
-  <Target Name="AfterBuild">
+  <Target Name="AfterBuild" Condition="Debug|AnyCPU">
     <Exec Command="sh postBuild.sh" />
+  </Target>
+  <Target Name="AfterBuild" Condition="Release|AnyCPU">
+    <Exec Command="sh postBuildRelease.sh" />
   </Target>
 </Project>

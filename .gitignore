@@ -6,10 +6,10 @@ LFOBalancer/LFOBalancerPostBuild
 *.sln
 .idea
 LFOBalancer/.vs
-LFOBalancer/Properties
 LFOBalancer/AssemblyInfo.cs
 LFOBalancer/postBuild.sh
 LFOBalancer/GameData
 LFOBalancer/obj
 LFOBalancer/KSP.log
 LFOBalancer/env/*
+LFOBalancer/postBuildRelease.sh
