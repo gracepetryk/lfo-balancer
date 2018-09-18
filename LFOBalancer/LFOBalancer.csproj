@@ -65,10 +65,11 @@
     <Target Name="BeforeBuild">
     </Target>
     -->
-  <Target Name="AfterBuild" Condition="Debug|AnyCPU">
-    <Exec Command="sh postBuild.sh" />
-  </Target>
-  <Target Name="AfterBuild" Condition="Release|AnyCPU">
+    <Target Name="AfterBuild" Condition="'$(Configuration)' == 'Debug'">
+        <Exec Command="sh postBuild.sh" />
+    </Target>
+
+  <Target Name="AfterBuild" Condition=" '$(Configuration)' == 'Release' ">
     <Exec Command="sh postBuildRelease.sh" />
   </Target>
 </Project>

@@ -5,6 +5,7 @@ LFOBalancer/LFOBalancerPostBuild
 *.userprefs
 *.sln
 .idea
+*.zip
 LFOBalancer/.vs
 LFOBalancer/AssemblyInfo.cs
 LFOBalancer/postBuild.sh

@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.IO;
 using Expansions.Missions.Actions;
 using JetBrains.Annotations;
 using KSP.UI.Screens;
@@ -9,7 +11,6 @@ namespace LFOBalancer
     [KSPAddon(KSPAddon.Startup.Flight, false)]
     public class Balancer : MonoBehaviour
     {
-        private static readonly Texture Texture = null; // TODO: Add Texture
         [UsedImplicitly] private static ApplicationLauncherButton _button;
         
         
@@ -28,12 +29,14 @@ namespace LFOBalancer
         // ratio of Oxidizer to LiquidFuel
         private const double FUEL_RATIO = 11.0 / 9.0;
 
-        void Awake()
+        void Start()
         {
             Debug.Log("LFO Balancer Initialized");
             
             InitializeButton();
-
+            
+            
+            UpdateBalancerList(FlightGlobals.ActiveVessel);
             GameEvents.onVesselWasModified.Add(UpdateBalancerList);
             GameEvents.onVesselChange.Add(UpdateBalancerList);
         }
@@ -80,6 +83,7 @@ namespace LFOBalancer
             _balancers.Clear();
             _balancers = v.FindPartModulesImplementing<ModuleLFOBalancer>();
             UpdateResourceLists();
+            Debug.Log("[LFOB: Updating Balancer List");
         }
         
         private void UpdateResourceLists()
@@ -104,8 +108,26 @@ namespace LFOBalancer
             }
         }
 
-        private static void InitializeButton()
+        private void InitializeButton()
         {
+            var texture = new Texture2D(38, 38, TextureFormat.ARGB32, false);
+            try
+            {
+                var texPath = Path.Combine(
+                    // ReSharper disable once AssignNullToNotNullAttribute
+                    Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location),
+                    "Icons/toolbar_disabled_38.png"); // TODO: Replace with non placeholder texture
+                texture.LoadImage(File.ReadAllBytes(texPath));
+                Debug.Log("[LFOB] Successfully loaded AppLauncher Texture");
+            }
+            catch (Exception e)
+            {
+                Debug.LogError("[LFOB] Could not Load Texture: " + e.Message);
+                texture = null;
+            }
+            
+            
+            
             _button = ApplicationLauncher.Instance.AddModApplication(
                 OnTrue,
                 OnFalse,
@@ -114,19 +136,20 @@ namespace LFOBalancer
                 null,
                 null,
                 ApplicationLauncher.AppScenes.FLIGHT,
-                Texture
+                texture // using placeholder texture from DOE
             );
+            
         }
         
         private static void OnTrue() // called when button is pressed
         {
-            Debug.Log("LFOBalancer: Enabled");
+            Debug.Log("[LFOB] Enabled");
             _balance = true;
         }
 
         private static void OnFalse()
         {
-            Debug.Log("LFOBalancer: Disabled");
+            Debug.Log("[LFOB] Disabled");
             _balance = false;
         }
     }
