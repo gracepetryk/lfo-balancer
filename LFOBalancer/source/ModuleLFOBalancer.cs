@@ -30,7 +30,7 @@ namespace LFOBalancer {
 		
 		public PartResource GetResource(string resourceName)
 		{
-			// returns a part resource if it exists, is not locked, and the balancer is enabled
+			// returns a part resource if the balancer is enabled
 			PartResource resource;
 
 			if (part.Resources.Contains(resourceName))

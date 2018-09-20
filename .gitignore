@@ -8,9 +8,9 @@ LFOBalancer/LFOBalancerPostBuild
 *.zip
 LFOBalancer/.vs
 LFOBalancer/AssemblyInfo.cs
-LFOBalancer/postBuild.sh
 LFOBalancer/GameData
 LFOBalancer/obj
 LFOBalancer/KSP.log
 LFOBalancer/env/*
 LFOBalancer/postBuildRelease.sh
+LFOBalancer/postBuild.sh
