@@ -34,7 +34,6 @@ namespace LFOBalancer
             
             InitializeButton();
             
-            
             UpdateBalancerList(FlightGlobals.ActiveVessel);
             GameEvents.onVesselWasModified.Add(UpdateBalancerList);
             GameEvents.onVesselChange.Add(UpdateBalancerList);
