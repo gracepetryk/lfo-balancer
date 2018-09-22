@@ -55,9 +55,8 @@
     <Compile Include="source\ModuleLFOBalancer.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="GameData\LFOBalancer" />
-  </ItemGroup>
-  <ItemGroup>
+    <Content Include="GameData\LFOBalancer\Icons\balance.png" />
+    <Content Include="GameData\LFOBalancer\LFOBalancer.cfg" />
     <Content Include="postBuild.sh" />
     <Content Include="source\LFOBalancer.cfg" />
   </ItemGroup>
