@@ -114,7 +114,7 @@ namespace LFOBalancer
                 var texPath = Path.Combine(
                     // ReSharper disable once AssignNullToNotNullAttribute
                     Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location),
-                    "Icons/toolbar_disabled_38.png"); // TODO: Replace with non placeholder texture
+                    "Icons/balance.png"); // TODO: Replace with non placeholder texture
                 texture.LoadImage(File.ReadAllBytes(texPath));
                 Debug.Log("[LFOB] Successfully loaded AppLauncher Texture");
             }

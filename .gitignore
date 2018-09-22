@@ -8,7 +8,6 @@ LFOBalancer/LFOBalancerPostBuild
 *.zip
 LFOBalancer/.vs
 LFOBalancer/AssemblyInfo.cs
-LFOBalancer/GameData
 LFOBalancer/obj
 LFOBalancer/KSP.log
 LFOBalancer/env/*
