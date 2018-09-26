@@ -6,6 +6,7 @@ LFOBalancer/LFOBalancerPostBuild
 *.sln
 .idea
 *.zip
+*.ckan
 LFOBalancer/.vs
 LFOBalancer/AssemblyInfo.cs
 LFOBalancer/obj
